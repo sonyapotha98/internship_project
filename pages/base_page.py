@@ -1,5 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class Page:
@@ -55,6 +56,12 @@ class Page:
             EC.element_to_be_clickable(locator),
             message=f'Element by locator {locator} not clickable'
         ).click()
+
+    # def move_to_element_and_click(self, *locator):
+    #     element = self.wait.until(EC.visibility_of_element_located(locator))
+    #     actions = ActionChains(self.driver)
+    #     actions.move_to_element(element).pause(2).click()
+    #     actions.perform()
 
     def wait_for_element_appear(self, *locator):
         self.wait.until(
