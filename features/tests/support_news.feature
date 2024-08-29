@@ -11,4 +11,3 @@ Feature: Test for support and news functionality
     And Close and Go back to original window
     And Click on news option
     And Verify telegram news page opened
-
