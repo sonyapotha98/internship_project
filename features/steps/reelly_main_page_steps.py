@@ -1,4 +1,5 @@
 from behave import given, when, then
+from time import sleep
 
 
 @given('Click on settings option')
