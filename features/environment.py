@@ -12,9 +12,9 @@ def browser_init(context,scenario_name):
     :param context: Behave context
     """
     ### CHROME ####
-    # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service)
 
 
     # ### FIREFOX ####
@@ -33,21 +33,21 @@ def browser_init(context,scenario_name):
     # )
 
 
-    ### BROWSERSTACK ###
-    bs_user = 'sonyapotha_IDjqPV'
-    bs_key = '8WixNvQ43Xx7y3oyJYp3'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-
-    options = Options()
-    bstack_options = {
-        "os": "Windows",
-        "osVersion": "11",
-        'browserName': 'firefox',
-        'sessionName': scenario_name
-    }
-
-    options.set_capability('bstack:options', bstack_options)
-    context.driver = webdriver.Remote(command_executor=url, options=options)
+    # ### BROWSERSTACK ###
+    # bs_user = 'sonyapotha_IDjqPV'
+    # bs_key = '8WixNvQ43Xx7y3oyJYp3'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    #
+    # options = Options()
+    # bstack_options = {
+    #     "os": "Windows",
+    #     "osVersion": "11",
+    #     'browserName': 'firefox',
+    #     'sessionName': scenario_name
+    # }
+    #
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
 
     # context.driver.set_window_size(1920, 1080)
 
