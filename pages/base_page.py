@@ -1,6 +1,9 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
+from time import sleep
+import time
+from selenium.common.exceptions import TimeoutException
 
 
 class Page:
@@ -34,9 +37,28 @@ class Page:
     def switch_to_new_window(self):
         self.wait.until(EC.new_window_is_opened)
         windows = self.driver.window_handles
+        sleep(5)
         print(f'All windows {windows}')
-        self.driver.switch_to.window(windows[1])
-        print(f'Switched to window => {windows[1]}')
+        if len(windows) > 1:
+            self.driver.switch_to.window(windows[1])
+            print(f'Switched to window => {windows[1]}')
+
+        else:
+            raise Exception("No new window to switch to!")
+
+    # def switch_to_new_window(self, timeout=15):
+    #     windows_before = self.driver.window_handles
+    #     start_time = time.time()
+    #
+    #     while time.time() - start_time < timeout:
+    #         windows_after = self.driver.window_handles
+    #         if len(windows_after) > len(windows_before):
+    #             self.driver.switch_to.window(windows_after[-1])  # Switch to the newest window
+    #             return
+    #         time.sleep(1)  # Wait for 1 second before checking again
+    #
+    #     raise TimeoutException("No new window appeared within the timeout period.")
+
 
     def switch_to_window_by_id(self, window_id):
         self.driver.switch_to.window(window_id)

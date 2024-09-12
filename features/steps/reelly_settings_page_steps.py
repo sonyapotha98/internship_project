@@ -1,6 +1,7 @@
 from behave import given, when, then
 
 
+
 @given('Store original window')
 def store_original_window(context):
     context.original_window = context.app.reelly_settings_page.get_current_window()
@@ -9,6 +10,7 @@ def store_original_window(context):
 @when('Click on support option')
 def click_support(context):
     context.app.reelly_settings_page.option_support()
+
 
 
 @then('Click on news option')

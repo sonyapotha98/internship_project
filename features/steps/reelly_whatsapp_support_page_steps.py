@@ -11,6 +11,7 @@ def switch_window(context):
 @then('Verify whatsapp support page opened')
 def verify_whatsapp_support_page_opened(context):
     context.app.reelly_whatsapp_support_page.verify_wsp_url()
+    sleep(6)
 
 
 @then('Close and Go back to original window')
