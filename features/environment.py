@@ -11,10 +11,10 @@ def browser_init(context,scenario_name):
     """
     :param context: Behave context
     """
-    # ### CHROME ####
-    # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
+    ### CHROME ####
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service)
 
 
     # ### FIREFOX ####
@@ -31,15 +31,15 @@ def browser_init(context,scenario_name):
     #     options=options,
     #     service=service
     # )
-
-    ### Mobile Emulation ###
-    mobile_emulation = {"deviceName": "iPhone 12 Pro"}
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
-    # driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub',desired_capabilities=chrome_options.to_capabilities())
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service, options=chrome_options)
+    #
+    # ### Mobile Emulation ###
+    # mobile_emulation = {"deviceName": "iPhone 12 Pro"}
+    # chrome_options = webdriver.ChromeOptions()
+    # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    # # driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub',desired_capabilities=chrome_options.to_capabilities())
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service, options=chrome_options)
 
 
     # ### BROWSERSTACK ###
@@ -63,7 +63,7 @@ def browser_init(context,scenario_name):
 
     # context.driver.set_window_size(390, 844)
 
-    # context.driver.maximize_window()
+    context.driver.maximize_window()
     context.driver.implicitly_wait(4)
     context.driver.wait = WebDriverWait(context.driver, 10)
     context.app = Application(context.driver)

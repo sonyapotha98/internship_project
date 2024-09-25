@@ -10,6 +10,8 @@ class Page:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(driver, timeout=15)
+        self.elements = None
+        self.element = None
 
     def open_url(self, url):
         self.driver.get(url)
@@ -72,6 +74,13 @@ class Page:
             EC.element_to_be_clickable(locator),
             message=f'Element by locator {locator} not clickable'
         )
+
+    def wait_until_elements_visible(self, *locator):
+        self.elements = self.wait.until(EC.presence_of_all_elements_located(locator))
+
+    def wait_until_element_visible(self, *locator):
+        self.element = self.wait.until(EC.presence_of_element_located(locator))
+
 
     def wait_and_click(self, *locator):
         self.wait.until(

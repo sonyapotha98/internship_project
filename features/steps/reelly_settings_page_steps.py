@@ -11,6 +11,18 @@ def store_original_window(context):
 def click_support(context):
     context.app.reelly_settings_page.option_support()
 
+@then('Verify the right page opens')
+def verify_settings_page_open(context):
+    context.app.reelly_settings_page.verify_settings_page_url()
+
+@then('Verify there are 12 options for the settings')
+def verify_settings_page_12options(context):
+    context.app.reelly_settings_page.verify_settings_options()
+
+@then('Verify “connect the company” button is available')
+def verify_connect_the_company_btn_available(context):
+    context.app.reelly_settings_page.verify_ctc_available()
+
 
 
 @then('Click on news option')
