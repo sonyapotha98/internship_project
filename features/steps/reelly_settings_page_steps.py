@@ -17,7 +17,7 @@ def verify_settings_page_open(context):
 
 @then('Verify there are 12 options for the settings')
 def verify_settings_page_12options(context):
-    context.app.reelly_settings_page.verify_settings_options()
+    context.app.reelly_settings_page.verify_12_settings_options()
 
 @then('Verify “connect the company” button is available')
 def verify_connect_the_company_btn_available(context):

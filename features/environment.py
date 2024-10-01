@@ -10,7 +10,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 def browser_init(context,scenario_name):
     """
     :param context: Behave context
-    """
+    # """
     ### CHROME ####
     driver_path = ChromeDriverManager().install()
     service = Service(driver_path)
@@ -23,7 +23,7 @@ def browser_init(context,scenario_name):
     # context.driver = webdriver.Firefox(service=service)
 
 
-    ### HEADLESS MODE ####
+    # ## HEADLESS MODE ####
     # options = webdriver.ChromeOptions()
     # options.add_argument('headless')
     # service = Service(ChromeDriverManager().install())

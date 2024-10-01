@@ -28,14 +28,16 @@ class ReellySettingsPage(Page):
     def verify_settings_page_url(self):
         self.verify_partial_url('settings')
 
-    def verify_settings_options(self):
+    def verify_12_settings_options(self):
+
         self.wait_until_elements_visible(*self.SETTINGS_PAGE_OPTIONS)
-        for value, element in enumerate(self.elements):
-            print(f'{value+1}.{element.text}')
+        assert len(self.elements) == 12, f"Expected 12 settings options, got {len(self.elements)}"
+        # for value, element in enumerate(self.elements):
+        #     print(f'{value+1}.{element.text}')
 
     def verify_ctc_available(self):
         self.wait_until_element_visible(*self.CONNECT_THE_CMPY_BTN)
-        print(f'{self.element.text} is available')
+        # print(f'{self.element.text} is available')
 
 
 
