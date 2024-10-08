@@ -4,6 +4,6 @@ Feature: Tests for Settings Page Functionality
     Given Open the signin page
     And Log in to the page
     And Click on settings option
-    Then Verify the right page opens
+    Then Verify the settings page opens
     And Verify there are 12 options for the settings
     And Verify “connect the company” button is available

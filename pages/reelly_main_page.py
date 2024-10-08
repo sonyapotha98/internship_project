@@ -7,6 +7,8 @@ class ReellyMainPage(Page):
     SETTINGS_TXT = (By.CSS_SELECTOR, ".menu-button-block[href='/settings']")
     MAIN_MENU_BTN = (By.CSS_SELECTOR,'[class *= "assistant-button"][href *= "main-menu"]')
     USER_PROFILE_BTN = (By.CSS_SELECTOR,'[class *= "menu-photo"][href *= "setting"]')
+    SECONDARY_BTN = (By.XPATH, '//div[text()= "Secondary"]')
+
     def option_settings(self):
         self.click(*self.SETTINGS_TXT)
     def main_menu(self):
@@ -17,3 +19,5 @@ class ReellyMainPage(Page):
         self.click(*self.USER_PROFILE_BTN)
         sleep(5)
 
+    def option_secondary(self):
+        self.click(*self.SECONDARY_BTN)

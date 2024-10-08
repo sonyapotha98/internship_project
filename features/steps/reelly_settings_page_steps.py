@@ -11,7 +11,7 @@ def store_original_window(context):
 def click_support(context):
     context.app.reelly_settings_page.option_support()
 
-@then('Verify the right page opens')
+@then('Verify the settings page opens')
 def verify_settings_page_open(context):
     context.app.reelly_settings_page.verify_settings_page_url()
 
@@ -33,3 +33,8 @@ def click_news(context):
 @then('Verify telegram news page opened')
 def verify_telegram_news_page_opened(context):
     context.app.reelly_telegram_news_page.verify_tnp_url()
+
+
+@given('Click on Secondary option at the left side menu')
+def click_secondary_option(context):
+    context.app.reelly_main_page.option_secondary()

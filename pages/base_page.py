@@ -29,7 +29,9 @@ class Page:
         self.driver.find_element(*locator).send_keys(text)
 
     def find_text(self,*locator):
+        # print(self.driver.find_element(*locator).text)
         return self.driver.find_element(*locator).text
+
 
     def get_current_window(self):
         window = self.driver.current_window_handle
